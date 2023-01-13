@@ -583,7 +583,8 @@ def setVehicleStyle(value):
 
 
 car=pd.read_csv("carData.csv")
-
+# car_model=pd.read_csv("fmodel.csv")
+# car_model_s=pd.read_csv("fmodelSpace.csv")
 
 
 @app.route('/')

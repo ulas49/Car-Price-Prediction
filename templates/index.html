@@ -24,8 +24,8 @@
 
                         <div class="col-12 form-group mb-4" style="text-align:center;">
                              <label for="make"><b>Select Make </b></label>
-                             <select name="make" id="make" class="selectpicker form-control" required="1" >
-                                <!-- onchange="load_models(this.id,'model')" -->
+                             <select name="make" id="make" class="selectpicker form-control" required="1"  onchange="load_models(this.id,'model')" >
+                               
                                 {% for make in make %}
 
                                 <option value={{make}}>{{make}}</option>
@@ -187,8 +187,37 @@
 
 
 // function load_models(curid,model_id){
-// var make=document.getElementById(curid)
-// var model = document.getElementById(model_id)
+
+// var makeOp=document.getElementById(curid)
+// var modelOp = document.getElementById(model_id)
+// console.log(makeOp.value)
+//  for ( var makes in  make){
+//      console.log(makes);
+//      if(makeOp.value == makes)
+// {
+//      console.log("OLDU")
+//      for (models in model) 
+//      {
+
+//           if (makes in models)   {
+
+
+//           var newOption = document.createElement("option")
+//           newOption.value=models
+//           newOption.innerHTML=models
+//           modelOp.options.add(newOption)
+
+//           }         
+
+//      } 
+
+
+      
+// }
+
+//   }
+
+
 // }
 
 function formHandler(event){
