@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body class="bg-dark">
+
+    
+    <div class="container ">
+        <div class="row">
+            <div class="card mt-50" style="width:100%;height:100%">
+
+                <div class="card-header">
+                    <div class="col-12" style="text-align: center;">
+                        <h1>Welcome to Car Price Predictor</h1>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <form  method="POST" >
+
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="make"><b>Select Make </b></label>
+                             <select name="make" id="make" class="selectpicker form-control" required="1" >
+                                <!-- onchange="load_models(this.id,'model')" -->
+                                {% for make in make %}
+
+                                <option value={{make}}>{{make}}</option>
+
+                                {% endfor %}
+
+
+                             </select>
+                        </div>
+
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                            <label for="model"><b>Select Model </b></label>
+                            <select name="model" id="model" class="selectpicker form-control" required="1">
+                                {% for model in model %}
+                                <option value={{model}}>{{model}}</option>
+                                {% endfor %}
+                            </select>
+                       </div>
+
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="year"><b>Select Year</b></label>
+                             <select name="year" id="year" class="selectpicker form-control" required="1">
+                              {% for year in year %}
+                              <option value={{year}}>{{year}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="engineFuelType"><b>Select Engine Fuel Type </b></label>
+                             <select name="engineFuelType" id="engineFuelType" class="selectpicker form-control" required="1">
+                              {% for engineFuelType in engineFuelType %}
+                              <option value={{engineFuelType}}>{{engineFuelType}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="engineHP"><b>Select Engine HP </b></label>
+                             <select name="engineHP" id="engineHP" class="selectpicker form-control" required="1">
+                              {% for engineHP in engineHP %}
+                              <option value={{engineHP}}>{{engineHP}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="engineCylinders"><b>Select Engine Cylinders </b></label>
+                             <select name="engineCylinders" id="engineCylinders" class="selectpicker form-control" required="1">
+                              {% for engineCylinders in engineCylinders %}
+ 
+                            
+                              <option value={{engineCylinders}}>{{engineCylinders}}</option>
+     
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="transmissionType"><b>Select Transmission Type </b></label>
+                             <select name="transmissionType" id="transmissionType" class="selectpicker form-control" required="1">
+                              {% for transmissionType in transmissionType %}
+                              <option value={{transmissionType}}>{{transmissionType}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="driven_Wheels"><b>Select Driven_Wheels </b></label>
+                             <select name="driven_Wheels" id="driven_Wheels" class="selectpicker form-control" required="1">
+                              {% for driven_Wheels in driven_Wheels %}
+                              <option value={{driven_Wheels}}>{{driven_Wheels}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-102form-group mb-4" style="text-align:center;">
+                             <label for="numberofDoors"><b>Select Number of Doors </b></label>
+                             <select name="numberofDoors" id="numberofDoors" class="selectpicker form-control" required="1">
+                              {% for numberofDoors in numberofDoors %}
+                              <option value={{numberofDoors}}>{{numberofDoors}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-102form-group mb-4" style="text-align:center;">
+                         <label for="marketCategory"><b>Select Market Category </b></label>
+                         <select name="marketCategory" id="marketCategory" class="selectpicker form-control" required="1">
+                          {% for marketCategory in marketCategory %}
+                          <option value={{marketCategory}}>{{marketCategory}}</option>
+                          {% endfor %}
+                         </select>
+                    </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="vehicleSize"><b>Select Vehicle Size </b></label>
+                             <select name="vehicleSize" id="vehicleSize" class="selectpicker form-control" required="1">
+                              {% for vehicleSize in vehicleSize %}
+                              <option value={{vehicleSize}}>{{vehicleSize}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="vehicleStyle"><b>Select Vehicle Style </b></label>
+                             <select name="vehicleStyle" id="vehicleStyle" class="selectpicker form-control" required="1">
+                              {% for vehicleStyle in vehicleStyle %}
+                              <option value={{vehicleStyle}}>{{vehicleStyle}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="highwayMPG"><b>Select Highway MPG </b></label>
+                             <select name="highwayMPG" id="highwayMPG" class="selectpicker form-control" required="1">
+                              {% for highwayMPG in highwayMPG %}
+                              <option value={{highwayMPG}}>{{highwayMPG}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-4" style="text-align:center;">
+                             <label for="citympg"><b>Select City MPG </b></label>
+                             <select name="citympg" id="citympg" class="selectpicker form-control" required="1">
+                              {% for citympg in citympg %}
+                              <option value={{citympg}}>{{citympg}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+                        <div class="col-12 form-group mb-5" style="text-align:center;">
+                             <label for="popularity"><b>Select Popularity </b></label>
+                             <select name="popularity" id="popularity" class="selectpicker form-control" required="1">
+                              {% for popularity in popularity %}
+                              <option value={{popularity}}>{{popularity}}</option>
+                              {% endfor %}
+                             </select>
+                        </div>
+
+                        <div class="col-12 form-group  " style="text-align:center;">
+                            <button class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
+                       </div>
+
+
+                      
+
+
+                    </form>
+                    <br>
+
+
+                    <div class="row" >
+                         <div class="col-12" style="text-align:center">
+                              <h3><span id="prediction"></span></h3>
+                         </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+
+
+// function load_models(curid,model_id){
+// var make=document.getElementById(curid)
+// var model = document.getElementById(model_id)
+// }
+
+function formHandler(event){
+     event.preventDefault()
+}
+
+
+function send_data(){
+
+document.querySelector('form').addEventListener('submit',formHandler)
+
+var fd = new FormData(document.querySelector('form'));
+
+
+var xhr =  new XMLHttpRequest();
+
+xhr.open('POST','/predict',true);
+
+document.getElementById("prediction").innerHTML="Predicting Price...";
+
+xhr.onreadystatechange=function()
+{
+     if(xhr.readyState==XMLHttpRequest.DONE)
+     {
+          document.getElementById("prediction").innerHTML="Prediction: $" + xhr.responseText;
+     }
+}
+
+xhr.onload=function(){};
+xhr.send(fd);
+
+
+
+}
+
+</script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  </body>
+</html>
