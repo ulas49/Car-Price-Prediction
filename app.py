@@ -592,7 +592,7 @@ def index():
     model=car["Model"].str.replace(' ','_').unique()
     year=sorted(car['Year'].unique(),reverse=True)
     engineFuelType=car["Engine Fuel Type"].str.replace(' ','_').unique()
-    engineHP=sorted(car['Engine HP'].unique())
+    engineHP=sorted(car['Engine HP'].unique(),reverse=True)
     engineCylinders=sorted(car['Engine Cylinders'].unique())
     transmissionType=car['Transmission Type'].unique()
     driven_Wheels=car["Driven_Wheels"].str.replace(' ','_').unique()        
